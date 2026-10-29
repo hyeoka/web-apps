@@ -37,12 +37,12 @@
 body:is(.theme-giyeoum-dark, .theme-giyeoum-light) #header-logo[data-giyeoum-brand] {
   display: flex;
   align-items: center;
-  padding: 4px 16px 4px 12px;
+  padding: 4px 12px;
 }
 #header-logo .giyeoum-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   color: var(--text-normal);
   text-decoration: none;
   white-space: nowrap;
@@ -50,11 +50,13 @@ body:is(.theme-giyeoum-dark, .theme-giyeoum-light) #header-logo[data-giyeoum-bra
   letter-spacing: .04em;
 }
 #header-logo .giyeoum-brand svg {
-  width: 29px;
-  height: 14px;
+  display: block;
+  flex: none;
+  width: 21px;
+  height: 10px;
 }
 #header-logo .giyeoum-brand-divider {
-  height: 14px;
+  height: 12px;
   width: 1px;
   background: var(--border-divider);
 }
