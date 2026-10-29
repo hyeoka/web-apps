@@ -1,5 +1,4 @@
-/* Presentation-only overrides for native ONLYOFFICE controls.
-   Preserve their fixed dimensions: the editors calculate canvas and ribbon geometry. */
+/* Native ONLYOFFICE Modern design tokens. No replacement controls or layout overrides. */
 @font-face {
   font-family: Pretendard;
   font-style: normal;
@@ -7,114 +6,25 @@
   font-display: swap;
   src: url("./fonts/PretendardVariable.woff2") format("woff2");
 }
-:root {
+:root body:is(.theme-giyeoum-dark, .theme-giyeoum-light) {
   --font-family-base-custom:
     Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-.theme-giyeoum-dark,
-.theme-giyeoum-light {
-  --border-radius-toolbar: 14px;
-  --toolbar-tab-radius: 9px;
-  --shadow-toolbar: 0 2px 8px rgba(5, 12, 24, 0.09);
-}
-.theme-giyeoum-dark .btn,
-.theme-giyeoum-light .btn {
-  border-radius: 7px;
-}
-.theme-giyeoum-dark .btn-group > .btn:not(:first-child),
-.theme-giyeoum-light .btn-group > .btn:not(:first-child) {
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.theme-giyeoum-dark .btn-group > .btn:not(:last-child),
-.theme-giyeoum-light .btn-group > .btn:not(:last-child) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.theme-giyeoum-dark .btn-primary,
-.theme-giyeoum-light .btn-primary {
-  background: #006fee !important;
-  border-color: #006fee !important;
-  color: #fff !important;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 111, 238, 0.14);
-}
-.theme-giyeoum-dark .btn-primary:hover,
-.theme-giyeoum-light .btn-primary:hover {
-  background: #2586f5 !important;
-  border-color: #2586f5 !important;
-}
-.theme-giyeoum-dark .dropdown-menu,
-.theme-giyeoum-light .dropdown-menu {
-  border-radius: 12px;
-  box-shadow: 0 10px 36px rgba(5, 12, 24, 0.2);
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-.theme-giyeoum-dark .dropdown-menu > li > a,
-.theme-giyeoum-light .dropdown-menu > li > a {
-  border-radius: 6px;
-  margin-left: 4px;
-  margin-right: 4px;
-}
-.theme-giyeoum-dark .asc-window,
-.theme-giyeoum-light .asc-window {
-  border-radius: 16px;
-  box-shadow: 0 18px 64px rgba(5, 12, 24, 0.3);
-  overflow: hidden;
-}
-.theme-giyeoum-dark .asc-window .header,
-.theme-giyeoum-light .asc-window .header {
-  border-radius: 16px 16px 0 0;
-}
-.theme-giyeoum-dark .input-field,
-.theme-giyeoum-light .input-field,
-.theme-giyeoum-dark .form-control,
-.theme-giyeoum-light .form-control {
-  border-radius: 7px;
-}
-.theme-giyeoum-dark .ribtab.active > a,
-.theme-giyeoum-light .ribtab.active > a {
-  color: var(--text-normal-pressed) !important;
-  font-weight: 600;
-}
-.theme-giyeoum-dark .toolbar .ribtab.active,
-.theme-giyeoum-dark .toolbar .ribtab.active > a {
-  background: #1b1c20 !important;
-  color: #8ac0ff !important;
-  border-radius: 9px 9px 0 0;
-}
-.theme-giyeoum-light .toolbar .ribtab.active,
-.theme-giyeoum-light .toolbar .ribtab.active > a {
-  background: #e3efff !important;
-  color: #005bc4 !important;
-  border-radius: 9px 9px 0 0;
-}
-.theme-giyeoum-dark .statusbar,
-.theme-giyeoum-light .statusbar {
-  font-variant-numeric: tabular-nums;
-}
-.theme-giyeoum-dark .tooltip-inner,
-.theme-giyeoum-light .tooltip-inner {
-  border-radius: 8px;
-  box-shadow: 0 4px 16px rgba(5, 12, 24, 0.14);
-}
-.theme-giyeoum-dark :focus-visible,
-.theme-giyeoum-light :focus-visible {
-  outline-color: #338ef7;
-}
-@media (prefers-reduced-motion: no-preference) {
-  .theme-giyeoum-dark .btn,
-  .theme-giyeoum-light .btn,
-  .theme-giyeoum-dark .dropdown-menu > li > a,
-  .theme-giyeoum-light .dropdown-menu > li > a {
-    transition:
-      background-color 0.14s ease,
-      border-color 0.14s ease,
-      color 0.14s ease;
-  }
+  --font-size-base: 12px;
+  --border-radius-toolbar: 16px;
+  --toolbar-tab-radius: 8px;
+  --border-radius-form-control: 8px;
+  --border-radius-button-base: 8px;
+  --border-radius-button-toolbar: 8px;
+  --border-radius-button-normal: 8px;
+  --border-radius-button-category: 8px;
+  --border-radius-window: 16px;
+  --border-radius-dropdown-menu: 12px;
+  --border-radius-dataview-item: 6px;
+  --toolbar-preferred-tab-style: line;
+  --shadow-toolbar: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-side-panel: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
-:root body.theme-giyeoum-dark{--toolbar-header-document:#0c0d0f;--toolbar-header-spreadsheet:#0c0d0f;--toolbar-header-presentation:#0c0d0f;--toolbar-header-pdf:#0c0d0f;--text-toolbar-header-on-background-document:#66aaff;--text-toolbar-header-on-background-spreadsheet:#66aaff;--text-toolbar-header-on-background-presentation:#66aaff;--text-toolbar-header-on-background-pdf:#66aaff;--background-normal:#1b1c20;--background-toolbar:#15161a;--background-toolbar-additional:#1d1f24;--background-primary-dialog-button:#006fee;--background-accent-button:#006fee;--background-tab-underline:#006fee;--background-notification-popover:#18263a;--background-notification-badge:#006fee;--background-scrim:rgba(5, 7, 11, 0.64);--background-loader:rgba(12, 13, 15, 0.94);--background-contrast-popover:#22242a;--shadow-contrast-popover:rgba(5, 7, 11, 0.4);--highlight-button-hover:#272a32;--highlight-button-pressed:#123158;--highlight-button-pressed-hover:#1a406b;--highlight-primary-dialog-button-hover:#2586f5;--highlight-accent-button-hover:#2586f5;--highlight-accent-button-pressed:#005bc4;--highlight-header-button-hover:#22242a;--highlight-header-button-pressed:#123158;--highlight-toolbar-tab-underline:#006fee;--highlight-text-select:#338ef7;--border-toolbar:#27292f;--border-toolbar-active-panel-top:#15161a;--border-divider:#292c33;--border-regular-control:#363a44;--border-toolbar-button-hover:#363a44;--border-control-focus:#338ef7;--border-button-pressed-focus:#338ef7;--border-error:#f7768b;--border-contrast-popover:#363a44;--text-normal:#e7e9ee;--text-normal-pressed:#8ac0ff;--text-secondary:#a1a8b6;--text-tertiary:#808897;--text-link:#66aaff;--text-link-hover:#99c7ff;--text-link-active:#338ef7;--text-link-visited:#66aaff;--text-inverse:#ffffff;--text-toolbar-header:#e7e9ee;--text-contrast-background:#ffffff;--icon-normal:#d3d8e1;--icon-normal-pressed:#8ac0ff;--icon-toolbar-header:#d3d8e1;--icon-success:#4bd99b;--canvas-background:#0c0d0f;--canvas-content-background:#ffffff;--canvas-page-border:#363a44;--canvas-ruler-background:#15161a;--canvas-ruler-border:#27292f;--canvas-ruler-margins-background:#1d1f24;--canvas-ruler-mark:#929aab;--canvas-scroll-thumb:#414753;--canvas-scroll-thumb-hover:#596170;--canvas-scroll-thumb-pressed:#66aaff;}
+:root body.theme-giyeoum-dark{--toolbar-header-document:#09090b;--toolbar-header-spreadsheet:#09090b;--toolbar-header-presentation:#09090b;--toolbar-header-pdf:#09090b;--text-toolbar-header-on-background-document:#66aaff;--text-toolbar-header-on-background-spreadsheet:#66aaff;--text-toolbar-header-on-background-presentation:#66aaff;--text-toolbar-header-on-background-pdf:#66aaff;--background-normal:#18181b;--background-toolbar:#18181b;--background-toolbar-additional:#18181b;--background-primary-dialog-button:#006fee;--background-accent-button:#006fee;--background-tab-underline:#006fee;--background-notification-popover:#18263a;--background-notification-badge:#006fee;--background-scrim:rgba(5, 7, 11, 0.64);--background-loader:rgba(12, 13, 15, 0.94);--background-contrast-popover:#18181b;--shadow-contrast-popover:rgba(5, 7, 11, 0.4);--highlight-button-hover:#27272a;--highlight-button-pressed:#13305a;--highlight-button-pressed-hover:#1a406b;--highlight-primary-dialog-button-hover:#2586f5;--highlight-accent-button-hover:#2586f5;--highlight-accent-button-pressed:#005bc4;--highlight-header-button-hover:#22242a;--highlight-header-button-pressed:#123158;--highlight-text-select:#338ef7;--border-toolbar:#2e2e33;--border-toolbar-active-panel-top:#15161a;--border-divider:#2e2e33;--border-regular-control:#2e2e33;--border-toolbar-button-hover:#363a44;--border-control-focus:#338ef7;--border-button-pressed-focus:#338ef7;--border-error:#f7768b;--border-contrast-popover:#363a44;--text-normal:#f4f4f5;--text-normal-pressed:#8ac0ff;--text-secondary:#a1a1aa;--text-tertiary:#808897;--text-link:#66aaff;--text-link-hover:#99c7ff;--text-link-active:#338ef7;--text-link-visited:#66aaff;--text-inverse:#ffffff;--text-toolbar-header:#f4f4f5;--text-contrast-background:#ffffff;--icon-normal:#d3d8e1;--icon-normal-pressed:#8ac0ff;--icon-toolbar-header:#d3d8e1;--icon-success:#4bd99b;--canvas-background:#09090b;--canvas-content-background:#ffffff;--canvas-page-border:#2e2e33;--canvas-ruler-background:#09090b;--canvas-ruler-border:#2e2e33;--canvas-ruler-margins-background:#1d1f24;--canvas-ruler-mark:#929aab;--canvas-scroll-thumb:#414753;--canvas-scroll-thumb-hover:#596170;--canvas-scroll-thumb-pressed:#66aaff;--background-pane:#18181b;--background-toolbar-tab:#18181b;--background-statusbar:#18181b;--icon-gray-primary:#d4d4d8;--icon-gray-secondary:#a1a1aa;--icon-blue-primary:#006fee;--icon-blue-secondary:#66aaff;--highlight-header-tab-underline-document:#006fee;--highlight-toolbar-tab-underline-document:#006fee;--highlight-header-tab-underline-spreadsheet:#006fee;--highlight-toolbar-tab-underline-spreadsheet:#006fee;--highlight-header-tab-underline-presentation:#006fee;--highlight-toolbar-tab-underline-presentation:#006fee;--highlight-header-tab-underline-pdf:#006fee;--highlight-toolbar-tab-underline-pdf:#006fee;--highlight-header-tab-underline-visio:#006fee;--highlight-toolbar-tab-underline-visio:#006fee;}
 
-:root body.theme-giyeoum-light{--toolbar-header-document:#f7f8fa;--toolbar-header-spreadsheet:#f7f8fa;--toolbar-header-presentation:#f7f8fa;--toolbar-header-pdf:#f7f8fa;--text-toolbar-header-on-background-document:#006fee;--text-toolbar-header-on-background-spreadsheet:#006fee;--text-toolbar-header-on-background-presentation:#006fee;--text-toolbar-header-on-background-pdf:#006fee;--background-normal:#ffffff;--background-toolbar:#ffffff;--background-toolbar-additional:#f0f2f6;--background-primary-dialog-button:#006fee;--background-accent-button:#006fee;--background-tab-underline:#006fee;--background-notification-popover:#eaf3ff;--background-scrim:rgba(22, 32, 52, 0.24);--background-contrast-popover:#ffffff;--highlight-button-hover:#f0f3f8;--highlight-button-pressed:#e3efff;--highlight-button-pressed-hover:#d3e6ff;--highlight-primary-dialog-button-hover:#005bc4;--highlight-accent-button-hover:#005bc4;--highlight-accent-button-pressed:#004a9f;--highlight-header-button-hover:#e9edf4;--highlight-header-button-pressed:#e3efff;--highlight-toolbar-tab-underline:#006fee;--border-toolbar:#e2e5ec;--border-toolbar-active-panel-top:#ffffff;--border-divider:#e7eaf0;--border-regular-control:#d6dce6;--border-control-focus:#006fee;--border-button-pressed-focus:#006fee;--border-error:#d43a58;--text-normal:#20252f;--text-normal-pressed:#005bc4;--text-secondary:#616b7c;--text-tertiary:#7b8596;--text-link:#0064d7;--text-link-hover:#004a9f;--text-inverse:#ffffff;--text-toolbar-header:#20252f;--text-contrast-background:#ffffff;--icon-normal:#526078;--icon-normal-pressed:#0064d7;--icon-toolbar-header:#526078;--canvas-background:#f0f2f6;--canvas-content-background:#ffffff;--canvas-page-border:#d9dfe9;--canvas-ruler-background:#f7f8fa;--canvas-ruler-border:#e2e5ec;--canvas-ruler-margins-background:#edf0f5;--canvas-scroll-thumb:#c4cbd8;--canvas-scroll-thumb-hover:#a3afc2;}
+:root body.theme-giyeoum-light{--toolbar-header-document:#f5f5f5;--toolbar-header-spreadsheet:#f5f5f5;--toolbar-header-presentation:#f5f5f5;--toolbar-header-pdf:#f5f5f5;--text-toolbar-header-on-background-document:#006fee;--text-toolbar-header-on-background-spreadsheet:#006fee;--text-toolbar-header-on-background-presentation:#006fee;--text-toolbar-header-on-background-pdf:#006fee;--background-normal:#ffffff;--background-toolbar:#ffffff;--background-toolbar-additional:#ffffff;--background-primary-dialog-button:#006fee;--background-accent-button:#006fee;--background-tab-underline:#006fee;--background-notification-popover:#eaf3ff;--background-scrim:rgba(22, 32, 52, 0.24);--background-contrast-popover:#ffffff;--highlight-button-hover:#f4f4f5;--highlight-button-pressed:#e3efff;--highlight-button-pressed-hover:#d3e6ff;--highlight-primary-dialog-button-hover:#005bc4;--highlight-accent-button-hover:#005bc4;--highlight-accent-button-pressed:#004a9f;--highlight-header-button-hover:#e9edf4;--highlight-header-button-pressed:#e3efff;--border-toolbar:#e4e4e7;--border-toolbar-active-panel-top:#ffffff;--border-divider:#e4e4e7;--border-regular-control:#e4e4e7;--border-control-focus:#006fee;--border-button-pressed-focus:#006fee;--border-error:#d43a58;--text-normal:#18181b;--text-normal-pressed:#005bc4;--text-secondary:#71717a;--text-tertiary:#7b8596;--text-link:#0064d7;--text-link-hover:#004a9f;--text-inverse:#ffffff;--text-toolbar-header:#18181b;--text-contrast-background:#ffffff;--icon-normal:#526078;--icon-normal-pressed:#0064d7;--icon-toolbar-header:#526078;--canvas-background:#f5f5f5;--canvas-content-background:#ffffff;--canvas-page-border:#e4e4e7;--canvas-ruler-background:#f5f5f5;--canvas-ruler-border:#e4e4e7;--canvas-ruler-margins-background:#edf0f5;--canvas-scroll-thumb:#c4cbd8;--canvas-scroll-thumb-hover:#a3afc2;--background-pane:#ffffff;--background-toolbar-tab:#ffffff;--background-statusbar:#ffffff;--icon-gray-primary:#52525b;--icon-gray-secondary:#71717a;--icon-blue-primary:#006fee;--icon-blue-secondary:#338ef7;--highlight-header-tab-underline-document:#006fee;--highlight-toolbar-tab-underline-document:#006fee;--highlight-header-tab-underline-spreadsheet:#006fee;--highlight-toolbar-tab-underline-spreadsheet:#006fee;--highlight-header-tab-underline-presentation:#006fee;--highlight-toolbar-tab-underline-presentation:#006fee;--highlight-header-tab-underline-pdf:#006fee;--highlight-toolbar-tab-underline-pdf:#006fee;--highlight-header-tab-underline-visio:#006fee;--highlight-toolbar-tab-underline-visio:#006fee;}

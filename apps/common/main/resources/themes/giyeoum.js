@@ -1,21 +1,38 @@
-/* Custom themes must have one base type. Upstream initialization can retain
-   theme-type-light while adding a custom dark theme, leaving incorrect icons. */
+/* Activate ONLYOFFICE's own Modern foundation before native layout measurements. */
 (function () {
-  function normalizeType() {
-    var body = document.body;
-    var type = body.classList.contains("theme-giyeoum-dark")
+  let iconTheme;
+  let reportedTheme;
+  function applyNativeFoundation() {
+    const body = document.body;
+    const type = body.classList.contains("theme-giyeoum-dark")
       ? "dark"
       : body.classList.contains("theme-giyeoum-light")
         ? "light"
         : null;
     if (!type) return;
-    var wrong = "theme-type-" + (type === "dark" ? "light" : "dark");
-    var correct = "theme-type-" + type;
-    if (body.classList.contains(wrong)) body.classList.remove(wrong);
-    if (!body.classList.contains(correct)) body.classList.add(correct);
+    const base = type === "dark" ? "theme-night" : "theme-white";
+    const wrong =
+      type === "dark"
+        ? ["theme-type-light", "theme-white"]
+        : ["theme-type-dark", "theme-night"];
+    for (const name of wrong)
+      if (body.classList.contains(name)) body.classList.remove(name);
+    for (const name of [base, "theme-type-" + type, "theme-icons-cls-mod2"])
+      if (!body.classList.contains(name)) body.classList.add(name);
+    if (reportedTheme !== type) {
+      reportedTheme = type;
+      window.parent.postMessage({ type: "gion:theme", theme: type }, "*");
+    }
+    if (window.uitheme?.apply_icons_from_url && iconTheme !== type) {
+      iconTheme = type;
+      window.uitheme.apply_icons_from_url(
+        "theme-giyeoum-" + type,
+        new URL("resources/img/v2/", location.href).href,
+      );
+    }
   }
-  normalizeType();
-  new MutationObserver(normalizeType).observe(document.body, {
+  applyNativeFoundation();
+  new MutationObserver(applyNativeFoundation).observe(document.body, {
     attributes: true,
     attributeFilter: ["class"],
   });
