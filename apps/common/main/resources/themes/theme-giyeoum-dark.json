@@ -86,6 +86,16 @@
     "highlight-header-tab-underline-pdf": "#006fee",
     "highlight-toolbar-tab-underline-pdf": "#006fee",
     "highlight-header-tab-underline-visio": "#006fee",
-    "highlight-toolbar-tab-underline-visio": "#006fee"
+    "highlight-toolbar-tab-underline-visio": "#006fee",
+    "canvas-cell-title-text": "#a1a1aa",
+    "canvas-cell-title-background": "#18181b",
+    "canvas-cell-title-background-hover": "#27272a",
+    "canvas-cell-title-background-selected": "#12345b",
+    "canvas-cell-title-border": "#2e2e33",
+    "canvas-cell-title-border-hover": "#52525b",
+    "canvas-cell-title-border-selected": "#006fee",
+    "canvas-anim-pane-background": "#18181b",
+    "canvas-anim-pane-item-fill-selected": "#12345b",
+    "canvas-anim-pane-item-fill-hovered": "#27272a"
   }
 }

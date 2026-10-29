@@ -288,8 +288,8 @@
 
     <script src="../../../../../apps/common/main/lib/util/desktopinit.js?__inline=true"></script>
     <script src="../../../../../apps/common/main/lib/util/themeinit.js?__inline=true"></script>
-<link data-giyeoum-theme rel="stylesheet" href="../../common/main/resources/themes/giyeoum.css?v=b12845c12baf">
-<script data-giyeoum-runtime defer src="../../common/main/resources/themes/giyeoum.js?v=b12845c12baf"></script>
+<link data-giyeoum-theme rel="stylesheet" href="../../common/main/resources/themes/giyeoum.css?v=275552e3d7a6">
+<script data-giyeoum-runtime defer src="../../common/main/resources/themes/giyeoum.js?v=275552e3d7a6"></script>
 </head>
 <body>
     <div class="inlined-svg"></div>

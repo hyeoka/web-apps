@@ -1,5 +1,8 @@
 /* Activate ONLYOFFICE's own Modern foundation before native layout measurements. */
 (function () {
+  const path = location.pathname;
+  document.body.dataset.giyeoumEditor = path.includes("spreadsheeteditor") ? "cell"
+    : path.includes("presentationeditor") ? "slide" : path.includes("pdfeditor") ? "pdf" : "word";
   let iconTheme;
   let reportedTheme;
   function applyNativeFoundation() {
@@ -97,11 +100,15 @@
     if (event.source !== window.parent || event.data?.type !== "gion:document-ready") return;
     const themes = window.Common?.UI?.Themes;
     if (!themes) return;
+    if (["word", "cell", "slide", "pdf"].includes(event.data.editorKind))
+      document.body.dataset.giyeoumEditor = event.data.editorKind;
     // Foundation classes can settle after the first native measurement. Measure
     // once more before locking theme controls so both palettes use the same gap.
     applyNativeFoundation();
     const application = window.DE || window.SSE || window.PE || window.PDFE;
     application?.getController("Viewport")?.onThemeChanged?.();
+    if (!policyApplied && document.body.dataset.giyeoumEditor === "pdf")
+      application?.getController("Toolbar")?.getView()?.setTab?.("home");
     themes.setAvailable(false);
     keepDocumentLight();
     if (!policyApplied) {
