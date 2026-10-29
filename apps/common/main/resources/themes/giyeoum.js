@@ -3,14 +3,20 @@
 (function () {
   function normalizeType() {
     var body = document.body;
-    var type = body.classList.contains('theme-giyeoum-dark') ? 'dark'
-      : body.classList.contains('theme-giyeoum-light') ? 'light' : null;
+    var type = body.classList.contains("theme-giyeoum-dark")
+      ? "dark"
+      : body.classList.contains("theme-giyeoum-light")
+        ? "light"
+        : null;
     if (!type) return;
-    var wrong = 'theme-type-' + (type === 'dark' ? 'light' : 'dark');
-    var correct = 'theme-type-' + type;
+    var wrong = "theme-type-" + (type === "dark" ? "light" : "dark");
+    var correct = "theme-type-" + type;
     if (body.classList.contains(wrong)) body.classList.remove(wrong);
     if (!body.classList.contains(correct)) body.classList.add(correct);
   }
   normalizeType();
-  new MutationObserver(normalizeType).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  new MutationObserver(normalizeType).observe(document.body, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
 })();
