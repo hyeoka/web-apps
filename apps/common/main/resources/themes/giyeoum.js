@@ -36,4 +36,51 @@
     attributes: true,
     attributeFilter: ["class"],
   });
+
+  // Replace only the native header's brand slot. The original title, menus,
+  // keyboard commands and About dialog continue to be owned by ONLYOFFICE.
+  let brandSlot;
+  function applyBrand() {
+    if (brandSlot?.isConnected && brandSlot.dataset.giyeoumBrand) return;
+    brandSlot = document.getElementById("header-logo");
+    if (!brandSlot) return;
+    brandSlot.dataset.giyeoumBrand = "true";
+    const link = document.createElement("a");
+    link.className = "giyeoum-brand";
+    link.href = location.ancestorOrigins?.[0] || "#";
+    link.target = "_top";
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      window.parent.postMessage({ type: "gion:home" }, "*");
+    });
+    link.setAttribute("aria-label", "기여움 DOCS 홈");
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("viewBox", "86 302 829 400");
+    svg.setAttribute("fill", "currentColor");
+    svg.setAttribute("aria-hidden", "true");
+    // The two visible paths in the supplied short logo; no background rectangle.
+    for (const shape of [
+      "M130.196 302H619L530.609 702H286.206L330.844 502H86L130.196 302Z",
+      "M915 302H670.888L582 702H826.554L915 302Z",
+    ]) {
+      const path = document.createElementNS(svg.namespaceURI, "path");
+      path.setAttribute("d", shape);
+      svg.append(path);
+    }
+    const divider = document.createElement("span");
+    divider.className = "giyeoum-brand-divider";
+    divider.setAttribute("aria-hidden", "true");
+    const label = document.createElement("span");
+    label.textContent = "DOCS";
+    link.append(svg, divider, label);
+    brandSlot.replaceChildren(link);
+    // Let the native header measure the new brand before positioning its tabs.
+    window.dispatchEvent(new Event("resize"));
+  }
+  applyBrand();
+  new MutationObserver(applyBrand).observe(document.body, {
+    childList: true,
+    subtree: true,
+  });
 })();
