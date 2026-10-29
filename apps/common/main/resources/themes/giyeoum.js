@@ -83,4 +83,27 @@
     childList: true,
     subtree: true,
   });
+
+  // Chrome follows the workspace theme. Document pages always remain light;
+  // theme controls in the native View/File panels are disabled after layout.
+  let policyApplied = false;
+  function keepDocumentLight() {
+    const themes = window.Common?.UI?.Themes;
+    if (!themes?.api) return;
+    themes.setContentTheme("light", true);
+    themes.api.asc_setContentDarkMode?.(false);
+  }
+  window.addEventListener("message", (event) => {
+    if (event.source !== window.parent || event.data?.type !== "gion:document-ready") return;
+    const themes = window.Common?.UI?.Themes;
+    if (!themes) return;
+    themes.setAvailable(false);
+    keepDocumentLight();
+    if (!policyApplied) {
+      policyApplied = true;
+      Common.NotificationCenter.on("contenttheme:dark", (dark) => {
+        if (dark) keepDocumentLight();
+      });
+    }
+  });
 })();
