@@ -97,6 +97,11 @@
     if (event.source !== window.parent || event.data?.type !== "gion:document-ready") return;
     const themes = window.Common?.UI?.Themes;
     if (!themes) return;
+    // Foundation classes can settle after the first native measurement. Measure
+    // once more before locking theme controls so both palettes use the same gap.
+    applyNativeFoundation();
+    const application = window.DE || window.SSE || window.PE || window.PDFE;
+    application?.getController("Viewport")?.onThemeChanged?.();
     themes.setAvailable(false);
     keepDocumentLight();
     if (!policyApplied) {

@@ -10,6 +10,8 @@
   --font-family-base-custom:
     Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-size-base: 12px;
+  --toolbar-height-controls: 84px;
+  --statusbar-height: 32px;
   --border-radius-toolbar: 10px;
   --toolbar-tab-radius: 8px;
   --border-radius-form-control: 8px;
